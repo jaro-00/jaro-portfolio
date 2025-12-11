@@ -1,103 +1,203 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabaseClient";
+
+type Person = {
+  id: number;
+  fname: string;
+  lname: string;
+  age: number;
+  status: string;
+}
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [editingPerson, setEditingPerson] = useState<Person | null>(null);
+  const [people, setPeople] = useState<Person[]>([]);
+  const [newPerson, setnewPerson] = useState({
+    fname: "",
+    lname: "",
+    age: "",
+    status: "",
+  });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  const fetchPeople = async () => {
+    const { data, error } = await supabase.from("people").select("*");
+    if(error) console.error(error);
+    else setPeople(data as Person[]);
+  };
+
+  const addPerson = async () => {
+    const entryId = { ...newPerson, id: Date.now()};
+    const {error} = await supabase.from("people").insert([entryId]);
+    if(error) console.error("Insert error:", error.message);
+    else {
+      setnewPerson({ fname: "", lname: "", age: "", status: ""});
+      fetchPeople();
+    }
+  };
+  const deletePerson = async (id: number) => {
+    const {error} = await supabase.from("people").delete().eq("id", id);
+    if(error) console.error(error);
+    else fetchPeople();
+  };
+
+  const updatePerson = async (id: number, fname: string, lname: string, age: number, status: string) => {
+    const { error } = await supabase.from("people").update({fname, lname, age, status }).eq("id", id);
+    if(error) console.error(error);
+    else fetchPeople();
+  };
+
+  useEffect(() => {
+    fetchPeople();
+  }, []);
+
+  return (
+    
+   <div>
+    <div className="bg-gray-800 text-white px-6 py-3 flex items-center justify-between shadow-md">
+       <div className="text-2xl font-bold">JARO</div>
+
+      {/* Links (hidden on mobile) */}
+      <div className="hidden md:flex space-x-6">
+        <a href="/" className="hover:text-blue-400 transition">Home</a>
+        <a href="/about" className="hover:text-blue-400 transition">About</a>
+        <a href="/services" className="hover:text-blue-400 transition">Skills</a>
+        <a href="/contact" className="hover:text-blue-400 transition">Contact</a>
+        
+      </div>
+
+      {/* Actions */}
+      <div className="flex items-center space-x-4">
+        <button className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">
+          Login
+        </button>
+        {/* Mobile Menu Button */}
+        <button className="md:hidden text-2xl">☰</button>
+      </div>
     </div>
+    <div className="mt-10 flex justify-center">
+       <img
+          src="/globe.svg"   
+          alt="Logo"
+          className="h-8 w-8 rounded-full"
+        />
+        <h1>Jade Anthony Ortega</h1>
+    </div>
+
+    <div className="p-6">
+    <h1 className="text-xl font-bold mb-4">People</h1>
+
+    <div className="space-x-2 mb-4">
+      <input placeholder="First Name" value={newPerson.fname} 
+      onChange={(e) => setnewPerson({ ... newPerson, fname: e.target.value})} className="border p-2"/>
+      <input placeholder="Last Name" value={newPerson.lname} 
+      onChange={(e) => setnewPerson({ ... newPerson, lname: e.target.value})} className="border p-2"/>
+      <input placeholder="Age" value={newPerson.age} 
+      onChange={(e) => setnewPerson({ ... newPerson, age: e.target.value})} className="border p-2"/>
+      <input placeholder="Status" value={newPerson.status} 
+      onChange={(e) => setnewPerson({ ... newPerson, status: e.target.value})} className="border p-2"/>
+      <button onClick={addPerson} className="bg-blue-500 text-white px-4 py-2 rounded">ADD</button>
+    </div>
+    <table className="w-full border">
+      <thead>
+        <tr className="bg-gray-200">
+          <th className="border p-2">First Name</th>
+          <th className="border p-2">Last Name</th>
+          <th className="border p-2">Age</th>
+          <th className="border p-2">Status</th>
+          <th className="border p-2">Actions</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {people.map((p) =>(
+          <tr key={p.id}>
+            <td className="border p-2">{p.fname}</td>
+            <td className="border p-2">{p.lname}</td>
+            <td className="border p-2">{p.age}</td>
+            <td className="border p-2">{p.status}</td>
+            <td className="border p-2">
+              <button  onClick={() => setEditingPerson(p)}
+              className="bg-green-500 text-white px-2 py-1 rounded"
+                >
+               Update
+              </button>
+               <button  onClick={() => deletePerson(p.id)}
+              className="bg-green-500 text-white px-2 py-1 rounded"
+                >
+               Delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+         {/* Modal */}
+      {editingPerson && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-4 rounded shadow-md w-80">
+            <h2 className="text-lg font-semibold mb-2">Edit Person</h2>
+
+            <input
+              className="border p-2 w-full mb-2"
+              value={editingPerson.fname}
+              onChange={(e) =>
+                setEditingPerson({ ...editingPerson, fname: e.target.value })
+              }
+            />
+            <input
+              className="border p-2 w-full mb-2"
+              value={editingPerson.lname}
+              onChange={(e) =>
+                setEditingPerson({ ...editingPerson, lname: e.target.value })
+              }
+            />
+            <input
+              className="border p-2 w-full mb-2"
+              value={editingPerson.age}
+              onChange={(e) =>
+                setEditingPerson({ ...editingPerson, age: Number (e.target.value) })
+              }
+            />
+            <input
+            
+              className="border p-2 w-full mb-2"
+              value={editingPerson.status}
+              onChange={(e) =>
+                setEditingPerson({ ...editingPerson, status: e.target.value })
+              }
+            />
+
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={() => setEditingPerson(null)}
+                className="bg-gray-400 px-3 py-1 rounded"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={ async () => {
+                  await updatePerson(
+                    editingPerson.id,
+                    editingPerson.fname,
+                    editingPerson.lname,
+                    editingPerson.age,
+                    editingPerson.status
+                  );
+                  setEditingPerson(null);
+                  confirm("Updated.");
+                }}
+                className="bg-blue-600 text-white px-3 py-1 rounded"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      </div>
+   </div>
   );
 }
