@@ -93,7 +93,55 @@ export default function Home() {
         I'm Jade Anthony Ortega, a full-stack developer and designer passionate about creating impactful digital solutions.
       </p>
     </section>
-    
+    {/* Contact */}
+<section
+  id="contact"
+  className="max-w-3xl mx-auto my-12 p-8 rounded-2xl bg-gradient-to-br from-[#bd8ceb] to-[#c8c0fa] shadow-md flex flex-col gap-6"
+>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="flex flex-col">
+      <label className="font-bold mb-2">Your Name</label>
+      <input
+        type="text"
+        placeholder="Your Name"
+        className="p-3 rounded-xl border border-gray-300 text-base"
+      />
+    </div>
+
+    <div className="flex flex-col">
+      <label className="font-bold mb-2">Your Email</label>
+      <input
+        type="text"
+        placeholder="youremail@email.com"
+        className="p-3 rounded-xl border border-gray-300 text-base"
+      />
+    </div>
+  </div>
+
+  <div className="flex flex-col">
+    <label className="font-bold mb-2">Your Message</label>
+    <textarea
+      className="p-3 rounded-xl border border-gray-300 h-32 resize-none"
+    />
+  </div>
+
+  <div className="flex justify-center">
+    <button
+      className="px-8 py-3 font-bold text-white rounded-full
+                 bg-gradient-to-br from-[#6c63ff] to-[#836fff]
+                 shadow-md transition hover:-translate-y-1
+                 hover:from-[#5a52e0] hover:to-[#6c63ff] hover:text-black"
+    >
+      Send Message
+    </button>
+  </div>
+</section>
+
+{/* Footer */}
+<footer className="flex justify-center p-8 font-bold bg-gradient-to-r from-[#ccc] to-[#c8c0fa]">
+  <p>© <span>{new Date().getFullYear()}</span> All Rights Reserved.</p>
+</footer>
+
   </div>
 );
 
