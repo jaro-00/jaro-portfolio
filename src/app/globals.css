@@ -22,5 +22,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #d7d4da0a, #b5aadb);
+
 }
