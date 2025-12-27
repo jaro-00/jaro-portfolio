@@ -13,6 +13,24 @@ type Person = {
 
 
 export default function Home() {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+  
+    // 👇 adjust this value manually
+    const OFFSET = 200; // pixels from top
+  
+    const y =
+      section.getBoundingClientRect().top +
+      window.scrollY -
+      OFFSET;
+  
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+  };
+  
   const [editingPerson, setEditingPerson] = useState<Person | null>(null);
   const [people, setPeople] = useState<Person[]>([]);
   const [newPerson, setnewPerson] = useState({
@@ -24,7 +42,7 @@ export default function Home() {
 
   const fetchPeople = async () => {
     const { data, error } = await supabase.from("people").select("*");
-    if(error) console.error(error);
+    if (error) console.error(error.message);
     else setPeople(data as Person[]);
   };
 
@@ -64,13 +82,13 @@ export default function Home() {
 
       <ul className="hidden md:flex gap-12 mr-20 font-bold">
         <li>
-          <a href="#profile" className="nav-link">Home</a>
+          <a href="#profile" onClick={(e) => {e.preventDefault(); scrollToSection("profile")}} className="nav-link hover:bg-purple-700 transition-colors duration-300 px-4 py-2 rounded hover:text-white scroll-smooth">Home</a>
         </li>
         <li>
-          <a href="#aboutme" className="nav-link">About</a>
+          <a href="#aboutme" onClick={(e) => {e.preventDefault(); scrollToSection("aboutme")}} className="nav-link hover:bg-purple-700 transition-colors duration-300 px-4 py-2 rounded hover:text-white scroll-smooth">About</a>
         </li>
         <li>
-          <a href="#contact" className="nav-link">Contact</a>
+          <a href="#contact" onClick={(e) => {e.preventDefault(); scrollToSection("contact")}} className="nav-link hover:bg-purple-700 transition-colors duration-300 px-4 py-2 rounded hover:text-white scroll-smooth">Contact</a>
         </li>
       </ul>
 
@@ -90,7 +108,7 @@ export default function Home() {
     <section id="aboutme" className="max-w-xl mx-auto my-12 p-8 rounded-2xl bg-gradient-to-br from-[#bd8ceb] to-[#c8c0fa] shadow-lg">
       <h2 className="text-2xl font-bold mb-4 text-center">About Me</h2>
       <p className="text-lg leading-relaxed text-justify">
-        I'm Jade Anthony Ortega, a full-stack developer and designer passionate about creating impactful digital solutions.
+        I'm Jade Anthony Ortega, a Junior Web developer and designer passionate about creating impactful digital solutions.
       </p>
     </section>
     {/* Contact */}
@@ -130,7 +148,7 @@ export default function Home() {
       className="px-8 py-3 font-bold text-white rounded-full
                  bg-gradient-to-br from-[#6c63ff] to-[#836fff]
                  shadow-md transition hover:-translate-y-1
-                 hover:from-[#5a52e0] hover:to-[#6c63ff] hover:text-black"
+                 hover:from-[#5a52e0] hover:to-[#6c63ff] hover:text-black cursor-pointer"
     >
       Send Message
     </button>
@@ -143,6 +161,7 @@ export default function Home() {
 </footer>
 
   </div>
+
 );
 
 
