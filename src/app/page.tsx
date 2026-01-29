@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
 
 type Person = {
   id: number;
@@ -114,25 +113,25 @@ export default function Home() {
               <div className="text-4xl mb-4">💻</div>
               <h3 className="text-2xl font-bold mb-3 dark:text-white">Frontend Development</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Creating responsive, interactive user interfaces with React, Next.js, and modern CSS frameworks like Tailwind.
+               Building responsive user interfaces using React and Next.js, with a focus on component structure, state handling, and clean layouts using Tailwind CSS.
               </p>
             </div>
 
             {/* Skill Card 2 */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
               <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-2xl font-bold mb-3 dark:text-white">UI/UX Design</h3>
+              <h3 className="text-2xl font-bold mb-3 dark:text-white">UI & UX Awareness</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Designing intuitive, beautiful interfaces that prioritize user experience and accessibility.
+                Applying basic UX principles to improve clarity, layout, and usability while building interfaces, and learning how design decisions affect user experience.
               </p>
             </div>
 
             {/* Skill Card 3 */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
               <div className="text-4xl mb-4">⚙️</div>
-              <h3 className="text-2xl font-bold mb-3 dark:text-white">Technical Solutions</h3>
+              <h3 className="text-2xl font-bold mb-3 dark:text-white">Problem Solving & Debugging</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Building scalable solutions with TypeScript, databases, and modern development practices.
+               Working through real technical problems such as data flow issues, authentication errors, and layout bugs by breaking them down and testing solutions.
               </p>
             </div>
           </div>
@@ -142,7 +141,7 @@ export default function Home() {
       {/* Projects / Experience */}
       <section id="projects" className="py-20 px-5 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-slate-800 dark:to-slate-900">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-4 text-center dark:text-white">Projects & Experience</h2>
+          <h2 className="text-4xl font-bold mb-4 text-center dark:text-white">Projects & Learning Experience</h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">Featured Work</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -152,14 +151,22 @@ export default function Home() {
                 <div className="text-6xl">🚀</div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Project Alpha</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Form-Based Web Systems (Learning Projects)</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  A full-stack web application built with React, Node.js, and PostgreSQL. Implemented real-time features and optimized performance.
+                A set of personal and school projects exploring how to handle user input, manage multiple entries, and generate structured outputs like PDFs or Excel files.
                 </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                  <li>Multi-input forms with dynamic tables</li>
+                  <li>Passing and managing data between components</li>
+                  <li>Mapping input to fixed-format documents (PDF/Excel)</li>
+                  <li>Learning how layout, spacing, and component hierarchy affect usability</li>
+                </ul>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Node.js</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">PostgreSQL</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JavaScript</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">pdf-lib</span>
+                  
                 </div>
               </div>
             </div>
@@ -170,14 +177,68 @@ export default function Home() {
                 <div className="text-6xl">🎯</div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Project Beta</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Frontend–Backend Integration Experiments</h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Mobile-responsive web platform with Supabase backend. Designed and implemented user authentication and data management.
+                Small projects exploring how frontend applications connect to a backend, handle authentication, and fetch protected data.
                 </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                  <li>Implementing Supabase authentication and session handling</li>
+                  <li>Creating protected routes and conditional rendering</li>
+                  <li>Fetching and displaying dynamic database data</li>
+                  <li>Debugging client–server issues</li>
+                </ul>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Next.js</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Supabase</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">TypeScript</span>
+                </div>
+              </div>
+            </div>
+             {/* Project Card 3 */}
+             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
+              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
+                <div className="text-6xl">🎯</div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">UI Layout & Component Experiments</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Hands-on practice experimenting with tables, dashboards, and responsive layouts to improve user experience.
+                </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                  <li>Handling overlapping content and spacing issues</li>
+                  <li>Using Tailwind CSS utilities to build clean and responsive layouts</li>
+                  <li>Learning how to adjust designs for usability and clarity</li>
+                  
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JavaScript</span>
+                </div>
+              </div>
+            </div>
+            {/* Project Card 4 */}
+            <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
+              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
+                <div className="text-6xl">🎯</div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Debugging & Problem-Solving Projects</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Focused projects where I tackled real issues in React/Next.js apps, improving my ability to diagnose and solve problems.
+                </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                  <li>Investigated and fixed hydration errors, redirect loops, and component behavior issues</li>
+                  <li>Traced data flow to understand and debug application logic</li>
+                  <li>Leveraged AI tools and documentation to support problem-solving</li>
+                  
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Next.js</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JavaScript</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">AI Tools</span>
                 </div>
               </div>
             </div>
@@ -198,9 +259,9 @@ export default function Home() {
                 1
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Discovery & Planning</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Start from a Real Requirement or Problem</h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I start by understanding your vision, goals, and target audience. Through detailed planning and discussion, I create a roadmap for success.
+                  I begin with real-world needs like forms, dashboards, and data flow challenges. Understanding the actual problem helps me build solutions that matter.
                 </p>
               </div>
             </div>
@@ -211,9 +272,9 @@ export default function Home() {
                 2
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Design & Development</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Break Features into Small, Testable Pieces</h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Using modern technologies and best practices, I design clean interfaces and build robust, scalable solutions.
+                  I break down complex features into manageable, testable components. This approach makes development more focused and easier to verify at each step.
                 </p>
               </div>
             </div>
@@ -224,9 +285,9 @@ export default function Home() {
                 3
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Testing & Refinement</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Debug by Tracing Data Flow and Component Behavior</h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Thorough testing ensures quality and performance. I refine based on feedback to achieve excellence.
+                  When issues arise, I systematically trace data flow and component behavior to identify root causes. This methodical approach helps me solve problems efficiently.
                 </p>
               </div>
             </div>
@@ -237,9 +298,9 @@ export default function Home() {
                 4
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Launch & Support</h3>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Refine or Improve Code with Guidance</h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I guide you through launch and provide ongoing support to ensure your project thrives.
+                  I continuously refine and improve my code by leveraging AI tools and learning resources. This helps me write better, more maintainable solutions.
                 </p>
               </div>
             </div>
@@ -247,23 +308,27 @@ export default function Home() {
 
           {/* Strengths */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold mb-8 text-center dark:text-white">Key Strengths</h3>
+            <h3 className="text-3xl font-bold mb-8 text-center dark:text-white">Strengths</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">🎯</div>
-                <h4 className="font-bold dark:text-white">Problem Solving</h4>
+                <div className="text-3xl mb-3">🔧</div>
+                <h4 className="font-bold dark:text-white">Persistent with Debugging</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Unfamiliar issues don't stop me</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">⚡</div>
-                <h4 className="font-bold dark:text-white">Fast Execution</h4>
+                <div className="text-3xl mb-3">📖</div>
+                <h4 className="font-bold dark:text-white">Comfortable Learning from Codebases</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I can navigate existing code effectively</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">🤝</div>
-                <h4 className="font-bold dark:text-white">Team Collaboration</h4>
+                <div className="text-3xl mb-3">🔄</div>
+                <h4 className="font-bold dark:text-white">Strong Interest in Data Flow</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Understanding frontend–backend connections</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">📚</div>
-                <h4 className="font-bold dark:text-white">Continuous Learning</h4>
+                <div className="text-3xl mb-3">💡</div>
+                <h4 className="font-bold dark:text-white">Willing to Ask & Iterate</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I leverage tools and feedback to improve</p>
               </div>
             </div>
           </div>
@@ -278,14 +343,12 @@ export default function Home() {
           
           <div className="p-8 rounded-2xl bg-white dark:bg-slate-800 shadow-lg">
             <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200 mb-6">
-              I'm Jade Anthony Ortega, a passionate web developer who thrives on structured tasks and hands-on technical work. I have a strong foundation in modern web technologies and a commitment to writing clean, maintainable code.
+            Hi, I’m Jade Anthony Ortega, a web developer who enjoys hands-on technical work and solving real problems. I strive to write clean and maintainable code while continuously improving my skills in modern web technologies.
             </p>
             <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200 mb-6">
-              I'm continuously improving my skills and seeking opportunities to grow in a dynamic environment. I believe in creating solutions that not only work well but also provide excellent user experiences. When I'm not coding, I enjoy learning new technologies and exploring creative problem-solving approaches.
+            I’m looking for an entry-level role where I can contribute, learn from experienced developers, and grow as a full-stack developer.
             </p>
-            <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-200">
-              I'm looking for an entry-level role where I can contribute meaningfully, learn from experienced professionals, and grow into a skilled full-stack developer. Let's build something great together!
-            </p>
+          
           </div>
         </div>
       </section>
@@ -296,64 +359,43 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-4 text-center dark:text-white">Let's Connect</h2>
           <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">Get in touch with me</p>
 
-          <form className="p-8 rounded-2xl bg-gradient-to-br from-sky-300 to-blue-600 dark:from-blue-900 dark:to-blue-800 shadow-lg flex flex-col gap-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col">
-                <label className="font-bold mb-2 text-white">Your Name</label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className="p-3 rounded-xl border border-sky-200 dark:border-blue-600 text-base dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
+          {/* Contact Links */}
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-300 to-blue-600 dark:from-blue-900 dark:to-blue-800 shadow-lg">
+            <div className="flex flex-col items-center gap-6">
+              <div className="text-center">
+                <p className="text-white text-lg mb-4">Feel free to reach out through any of these channels:</p>
               </div>
-
-              <div className="flex flex-col">
-                <label className="font-bold mb-2 text-white">Your Email</label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="p-3 rounded-xl border border-sky-200 dark:border-blue-600 text-base dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
+              
+              <div className="flex flex-wrap justify-center gap-6">
+                <a 
+                  href="mailto:albeosanthony9@gmail.com" 
+                  className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
+                >
+                  <span className="text-2xl">📧</span>
+                  <span>Email</span>
+                </a>
+                
+                <a 
+                  href="https://linkedin.com/in/yourprofile" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
+                >
+                  <span className="text-2xl">💼</span>
+                  <span>LinkedIn</span>
+                </a>
+                
+                <a 
+                  href="https://github.com/yourusername" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
+                >
+                  <span className="text-2xl">🐙</span>
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
-
-            <div className="flex flex-col">
-              <label className="font-bold mb-2 text-white">Subject</label>
-              <input
-                type="text"
-                placeholder="What is this about?"
-                className="p-3 rounded-xl border border-sky-200 dark:border-blue-600 text-base dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label className="font-bold mb-2 text-white">Your Message</label>
-              <textarea
-                placeholder="Write your message here..."
-                className="p-3 rounded-xl border border-sky-200 dark:border-blue-600 h-32 resize-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="px-8 py-3 font-bold text-white rounded-full
-                           bg-gradient-to-br from-blue-700 to-blue-600
-                           shadow-md transition hover:-translate-y-1
-                           hover:shadow-lg cursor-pointer
-                           dark:hover:text-white"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-
-          {/* Social Links */}
-          <div className="mt-12 flex justify-center gap-8">
-            <a href="#" className="text-3xl hover:scale-125 transition transform">💼</a>
-            <a href="#" className="text-3xl hover:scale-125 transition transform">🐙</a>
-            <a href="#" className="text-3xl hover:scale-125 transition transform">📧</a>
-            <a href="#" className="text-3xl hover:scale-125 transition transform">🔗</a>
           </div>
         </div>
       </section>
