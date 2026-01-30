@@ -14,6 +14,7 @@ type Person = {
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -44,6 +45,13 @@ export default function Home() {
       top: y,
       behavior: "smooth",
     });
+    
+    // Close mobile menu when a link is clicked
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   
   return (
@@ -75,16 +83,100 @@ export default function Home() {
           </li>
         </ul>
       {/* Dark Mode Toggle & Mobile Menu */}
-        <button
-          onClick={handleDarkModeToggle}
-          className="text-2xl p-2 rounded-lg hover:bg-white/20 dark:hover:bg-black/20 transition-colors"
-          title="Toggle dark mode"
-        >
-          {isDarkMode ? "☀️" : "🌙"}
-        </button>
-        
-        <div className="block md:hidden text-3xl cursor-pointer">☰</div>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleMobileMenu}
+            className="block md:hidden text-3xl cursor-pointer p-2 rounded-lg hover:bg-white/20 dark:hover:bg-black/20 transition-colors"
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={toggleMobileMenu}
+          />
+          
+          {/* Menu Panel */}
+          <div className="absolute top-0 right-0 h-full w-64 bg-white dark:bg-slate-900 shadow-xl">
+            <div className="flex flex-col p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold dark:text-white">Menu</h2>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="text-3xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  aria-label="Close menu"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <ul className="flex flex-col gap-4">
+                <li>
+                  <a 
+                    href="#hero" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("hero")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#skills" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("skills")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    Skills
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#projects" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("projects")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#process" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("process")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    Process
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#about" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("about")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#contact" 
+                    onClick={(e) => {e.preventDefault(); scrollToSection("contact")}} 
+                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero / Introduction */}
       <section id="hero" className="flex flex-col items-center justify-center min-h-screen px-5 bg-gradient-to-br from-sky-50 to-sky-100 dark:from-blue-900/30 dark:to-blue-900/30">
@@ -148,7 +240,7 @@ export default function Home() {
             {/* Project Card 1 */}
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-48 bg-gradient-to-br from-sky-300 to-blue-600 flex items-center justify-center">
-                <div className="text-6xl">🚀</div>
+                <div className="text-6xl">🎯</div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">Form-Based Web Systems (Learning Projects)</h3>
@@ -376,7 +468,7 @@ export default function Home() {
                 </a>
                 
                 <a 
-                  href="https://linkedin.com/in/yourprofile" 
+                  href="https://www.linkedin.com/in/jade-anthony-ortega-38274b376" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
@@ -386,7 +478,7 @@ export default function Home() {
                 </a>
                 
                 <a 
-                  href="https://github.com/yourusername" 
+                  href="https://github.com/jaro-00" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
