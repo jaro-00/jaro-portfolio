@@ -104,77 +104,77 @@ export default function Home() {
           />
           
           {/* Menu Panel */}
-          <div className="absolute top-0 right-0 h-full w-64 bg-white dark:bg-slate-900 shadow-xl">
+            <div className="absolute top-0 right-0 h-full w-36 bg-white dark:bg-slate-900 shadow-xl ">
             <div className="flex flex-col p-6">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-bold dark:text-white">Menu</h2>
-                <button
-                  onClick={toggleMobileMenu}
-                  className="text-3xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  aria-label="Close menu"
-                >
-                  ✕
-                </button>
+              <h2 className="text-xl font-bold dark:text-white">Menu</h2>
+              <button
+                onClick={toggleMobileMenu}
+                className="text-3xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
               </div>
               
-              <ul className="flex flex-col gap-4">
-                <li>
-                  <a 
-                    href="#hero" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("hero")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#skills" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("skills")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    Skills
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#projects" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("projects")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#process" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("process")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    Process
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#about" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("about")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#contact" 
-                    onClick={(e) => {e.preventDefault(); scrollToSection("contact")}} 
-                    className="block px-4 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
-                  >
-                    Contact
-                  </a>
-                </li>
+              <ul className="flex flex-col gap-4 -mx-6">
+              <li>
+                <a 
+                href="#hero" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("hero")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Home
+                </a>
+              </li>
+              <li>
+                <a 
+                href="#skills" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("skills")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Skills
+                </a>
+              </li>
+              <li>
+                <a 
+                href="#projects" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("projects")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Projects
+                </a>
+              </li>
+              <li>
+                <a 
+                href="#process" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("process")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Process
+                </a>
+              </li>
+              <li>
+                <a 
+                href="#about" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("about")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                About
+                </a>
+              </li>
+              <li>
+                <a 
+                href="#contact" 
+                onClick={(e) => {e.preventDefault(); scrollToSection("contact")}} 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Contact
+                </a>
+              </li>
               </ul>
             </div>
-          </div>
+            </div>
         </div>
       )}
 
@@ -405,22 +405,22 @@ export default function Home() {
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
                 <div className="text-3xl mb-3">🔧</div>
                 <h4 className="font-bold dark:text-white">Persistent with Debugging</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Unfamiliar issues don't stop me</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I stay patient when facing unfamiliar issues and work through them step by step.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
                 <div className="text-3xl mb-3">📖</div>
                 <h4 className="font-bold dark:text-white">Comfortable Learning from Codebases</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I can navigate existing code effectively</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I can read, understand, and adapt existing code while learning how it works.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
                 <div className="text-3xl mb-3">🔄</div>
                 <h4 className="font-bold dark:text-white">Strong Interest in Data Flow</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Understanding frontend–backend connections</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I enjoy understanding how data moves between the frontend and backend.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
                 <div className="text-3xl mb-3">💡</div>
                 <h4 className="font-bold dark:text-white">Willing to Ask & Iterate</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I leverage tools and feedback to improve</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I ask questions, use feedback, and leverage tools to continuously improve.</p>
               </div>
             </div>
           </div>
