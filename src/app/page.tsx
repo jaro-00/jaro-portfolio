@@ -34,7 +34,7 @@ export default function Home() {
     if (!section) return;
   
    
-    const OFFSET = 200; // pixels from top
+    const OFFSET = 100; // pixels from top
   
     const y =
       section.getBoundingClientRect().top +
@@ -202,7 +202,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Skill Card 1 */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-              <div className="text-4xl mb-4">💻</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-2xl font-bold mb-3 dark:text-white">Frontend Development</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Building responsive user interfaces using React and Next.js, with a focus on component structure, state handling, and clean layouts using Tailwind CSS.
@@ -211,7 +211,7 @@ export default function Home() {
 
             {/* Skill Card 2 */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-              <div className="text-4xl mb-4">🎨</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-2xl font-bold mb-3 dark:text-white">UI & UX Awareness</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Applying basic UX principles to improve clarity, layout, and usability while building interfaces, and learning how design decisions affect user experience.
@@ -220,7 +220,7 @@ export default function Home() {
 
             {/* Skill Card 3 */}
             <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
-              <div className="text-4xl mb-4">⚙️</div>
+              <div className="text-4xl mb-4"></div>
               <h3 className="text-2xl font-bold mb-3 dark:text-white">Problem Solving & Debugging</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Working through real technical problems such as data flow issues, authentication errors, and layout bugs by breaking them down and testing solutions.
@@ -239,8 +239,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Project Card 1 */}
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
-              <div className="h-48 bg-gradient-to-br from-sky-300 to-blue-600 flex items-center justify-center">
-                <div className="text-6xl">🎯</div>
+              <div className="h-28 bg-gradient-to-br from-sky-300 to-blue-600 flex items-center justify-center">
+                <div className="text-6xl"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">Form-Based Web Systems (Learning Projects)</h3>
@@ -265,8 +265,8 @@ export default function Home() {
 
             {/* Project Card 2 */}
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                <div className="text-6xl">🎯</div>
+              <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
+                <div className="text-6xl"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">Frontend–Backend Integration Experiments</h3>
@@ -288,8 +288,8 @@ export default function Home() {
             </div>
              {/* Project Card 3 */}
              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                <div className="text-6xl">🎯</div>
+              <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
+                <div className="text-6xl"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">UI Layout & Component Experiments</h3>
@@ -311,8 +311,8 @@ export default function Home() {
             </div>
             {/* Project Card 4 */}
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
-                <div className="text-6xl">🎯</div>
+              <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
+                <div className="text-6xl"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">Debugging & Problem-Solving Projects</h3>
@@ -403,22 +403,22 @@ export default function Home() {
             <h3 className="text-3xl font-bold mb-8 text-center dark:text-white">Strengths</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">🔧</div>
+                <div className="text-3xl mb-3"></div>
                 <h4 className="font-bold dark:text-white">Persistent with Debugging</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I stay patient when facing unfamiliar issues and work through them step by step.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">📖</div>
+                <div className="text-3xl mb-3"></div>
                 <h4 className="font-bold dark:text-white">Comfortable Learning from Codebases</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I can read, understand, and adapt existing code while learning how it works.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">🔄</div>
+                <div className="text-3xl mb-3"></div>
                 <h4 className="font-bold dark:text-white">Strong Interest in Data Flow</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I enjoy understanding how data moves between the frontend and backend.</p>
               </div>
               <div className="p-6 bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 rounded-xl text-center">
-                <div className="text-3xl mb-3">💡</div>
+                <div className="text-3xl mb-3"></div>
                 <h4 className="font-bold dark:text-white">Willing to Ask & Iterate</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">I ask questions, use feedback, and leverage tools to continuously improve.</p>
               </div>
@@ -463,7 +463,7 @@ export default function Home() {
                   href="mailto:albeosanthony9@gmail.com" 
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
                 >
-                  <span className="text-2xl">📧</span>
+                  {/*  <span className="text-2xl">📧</span>*/}
                   <span>Email</span>
                 </a>
                 
@@ -473,7 +473,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
                 >
-                  <span className="text-2xl">💼</span>
+                  {/*  <span className="text-2xl">💼</span>*/}
                   <span>LinkedIn</span>
                 </a>
                 
@@ -483,7 +483,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
                 >
-                  <span className="text-2xl">🐙</span>
+                  {/*  <span className="text-2xl">🐙</span>*/}
                   <span>GitHub</span>
                 </a>
               </div>
@@ -495,7 +495,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="flex flex-col items-center justify-center p-8 font-bold bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-800 dark:to-blue-900 dark:text-white">
         <p>© <span>{new Date().getFullYear()}</span> Jade Anthony Ortega. All Rights Reserved.</p>
-        <p className="text-sm text-gray-700 dark:text-gray-400 mt-2">Designed & Built with ❤️</p>
+        
       </footer>
     </div>
   );
