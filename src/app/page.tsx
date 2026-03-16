@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Person = {
@@ -53,6 +54,14 @@ export default function Home() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950">
+        <div className="w-10 h-10 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
   
   return (
     <div className="m-0 font-sans bg-white dark:bg-slate-950 min-h-screen transition-colors duration-300">
@@ -172,6 +181,14 @@ export default function Home() {
                 Contact
                 </a>
               </li>
+              <li>
+                <Link 
+                href="/login" 
+                className="block px-6 py-3 hover:bg-blue-700 hover:text-gray-50 text-right dark:hover:bg-blue-600 transition-colors text-gray-800 dark:text-white font-semibold"
+                >
+                Login
+                </Link>
+              </li>
               </ul>
             </div>
             </div>
@@ -237,6 +254,42 @@ export default function Home() {
           <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">Featured Work</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Project Card 0 */}
+             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
+              <div className="h-28 bg-gradient-to-br from-sky-300 to-blue-600 flex items-center justify-center">
+                <div className="text-6xl"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">Full-Stack Notes Application</h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                A complete notes management system with user authentication, built using Next.js for the frontend and Node.js/Express for the backend, featuring secure API endpoints and database integration.
+                </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                  <li>JWT-based authentication for secure user sessions</li>
+                  <li>RESTful API with CRUD operations for notes</li>
+                  <li>Protected routes and middleware for authorization</li>
+                  <li>Supabase database integration for data persistence</li>
+                  <li>Responsive design with modern UI components</li>
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Next.js</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Node.js</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Express</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JWT</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Supabase</span>
+                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                </div>
+                <div className="flex justify-center mt-5">
+                 <Link href="/login" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                  Live Demo
+                 </Link>
+                 </div>
+              </div>
+              
+            </div>
+           
+            
             {/* Project Card 1 */}
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-28 bg-gradient-to-br from-sky-300 to-blue-600 flex items-center justify-center">
@@ -263,7 +316,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Project Card 2 */}
+            {/* Project Card 2 
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
                 <div className="text-6xl"></div>
@@ -286,6 +339,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            */}
              {/* Project Card 3 */}
              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
