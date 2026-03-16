@@ -340,7 +340,7 @@ export default function Home() {
               </div>
             </div>
             */}
-             {/* Project Card 3 */}
+             {/* Project Card 3 
              <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
                 <div className="text-6xl"></div>
@@ -363,7 +363,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Project Card 4 */}
+            */}
+            {/* Project Card 4 
             <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 bg-white dark:bg-slate-800">
               <div className="h-28 bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center">
                 <div className="text-6xl"></div>
@@ -388,6 +389,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            */}
           </div>
         </div>
       </section>
