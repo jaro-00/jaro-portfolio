@@ -23,7 +23,19 @@ export async function POST(request) {
       .eq('email', email)
       .single();
 
-    if (error || !user) {
+    // Supabase uses PGRST116 for "no rows" when using .single()
+    if (error) {
+      if (error.code === 'PGRST116') {
+        return NextResponse.json({ error: 'User not found' }, { status: 404 });
+      }
+      console.error('LOGIN SUPABASE ERROR:', error);
+      return NextResponse.json(
+        { error: error.message || 'Login query failed' },
+        { status: 500 },
+      );
+    }
+
+    if (!user) {
       return NextResponse.json(
         { error: 'User not found' },
         { status: 404 },

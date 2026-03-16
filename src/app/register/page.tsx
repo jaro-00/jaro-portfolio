@@ -9,7 +9,6 @@ export default function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
     
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
