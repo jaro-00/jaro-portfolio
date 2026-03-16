@@ -16,11 +16,11 @@ export default function LoginPage() {
         setIsDarkMode(document.documentElement.classList.contains("dark"));
       }, []);
     
-    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+    
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-       const res = await fetch(`${API_BASE}/api/auth/login`,{
+       const res = await fetch(`/api/auth/login`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

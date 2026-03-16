@@ -32,8 +32,8 @@ export default function NotesPage() {
     const fetchNotes = async () => {
         try {
             const token = localStorage.getItem('token');
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-            const res = await fetch(`${API_BASE}/api/notes`, {
+            
+            const res = await fetch(`/api/notes`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -57,8 +57,8 @@ export default function NotesPage() {
 
         try {
             const token = localStorage.getItem('token');
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-            const res = await fetch(`${API_BASE}/api/notes`, {
+            
+            const res = await fetch(`/api/notes`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -98,8 +98,8 @@ export default function NotesPage() {
 
         try {
             const token = localStorage.getItem('token');
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-            const res = await fetch(`${API_BASE}/api/notes/${updateId}`, {
+            if(!confirm(`Are you sure you want to update this note?`)) return;
+            const res = await fetch(`/api/notes/${updateId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -131,8 +131,8 @@ export default function NotesPage() {
 
         try {
             const token = localStorage.getItem('token');
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-            const res = await fetch(`${API_BASE}/api/notes/${deleteId}`, {
+            if(!confirm(`Are you sure you want to delete this note?`)) return;
+            const res = await fetch(`/api/notes/${deleteId}`, {
                 method: "DELETE",
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -153,8 +153,8 @@ export default function NotesPage() {
     const deleteNoteById = async (id: number) => {
         try {
             const token = localStorage.getItem('token');
-            const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-            const res = await fetch(`${API_BASE}/api/notes/${id}`, {
+            if(!confirm(`Are you sure you want to delete this note?`)) return;
+            const res = await fetch(`/api/notes/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -207,7 +207,7 @@ export default function NotesPage() {
                     </button>
                 </div>
 
-                <div className="grid gap-8 lg:grid-cols-2">
+                <div className="grid gap-8">
                     {/* Add Note Form */}
                     <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md ring-1 ring-black/5 dark:ring-white/10">
                     <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Add New Note</h2>
@@ -242,7 +242,8 @@ export default function NotesPage() {
                 </div>
 
                     {/* Notes List */}
-                    <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md ring-1 ring-black/5 dark:ring-white/10">
+                    <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md ring-1 ring-black/5 dark:ring-white/10 mb-7">
+                        
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-semibold text-gray-800 dark:text-white">All Notes</h2>
                             <span className="text-sm text-gray-500 dark:text-gray-400">
