@@ -22,6 +22,9 @@ export default function RootLayout({
   const [darkMode, setDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  /**
+   * Initialize dark mode from localStorage (or system preference) on mount.
+   */
   useEffect(() => {
     // Initialize dark mode on mount
     const saved = localStorage.getItem("darkMode");
@@ -30,6 +33,9 @@ export default function RootLayout({
     setMounted(true);
   }, []);
 
+  /**
+   * Apply the `dark` class to the document element and persist preference.
+   */
   useEffect(() => {
     if (!mounted) return;
     
@@ -44,6 +50,9 @@ export default function RootLayout({
     localStorage.setItem("darkMode", String(darkMode));
   }, [darkMode, mounted]);
 
+  /**
+   * Listen for cross-component theme changes (via `CustomEvent`).
+   */
   useEffect(() => {
     const handler = (e: Event) => {
       const ev = e as CustomEvent<boolean>;

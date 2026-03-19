@@ -10,6 +10,11 @@ export default function RegisterPage() {
     const [password, setPassword] = useState("");
     const router = useRouter();
     
+    /**
+     * Create a new user account via the register API, then redirect to login.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} e
+     */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
        const res = await fetch(`/api/auth/register`,{

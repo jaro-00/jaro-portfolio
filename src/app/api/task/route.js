@@ -2,23 +2,15 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/app/lib/db';
 import { getUserFromRequest } from '@/app/lib/auth';
 
-/**
- * Return all notes for the authenticated user.
- *
- * Auth: `Authorization: Bearer <jwt>`.
- *
- * @param {Request} request
- * @returns {Promise<import('next/server').NextResponse>}
- */
 export async function GET(request) {
-  const user = getUserFromRequest(request);
-  if (!user) {
+    const user = getUserFromRequest(request);
+      if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-
+  
   try {
     const { data, error } = await supabase
-      .from("secnotes")
+      .from("tasks")
       .select("*")
       .eq("user_id", user.id)
       .order("id", { ascending: true });
@@ -27,26 +19,17 @@ export async function GET(request) {
     return NextResponse.json(data);
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: "Failed to fetch notes" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to fetch tasks" }, { status: 500 });
   }
 }
 
-/**
- * Create a new note for the authenticated user.
- *
- * Auth: `Authorization: Bearer <jwt>`.
- * Expects JSON body: `{ title: string, content?: string }`.
- *
- * @param {Request} request
- * @returns {Promise<import('next/server').NextResponse>}
- */
 export async function POST(request) {
   const user = getUserFromRequest(request);
   if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { title, content } = await request.json();
+  const { title, description, status } = await request.json();
 
   if (!title) {
     return NextResponse.json({ error: "Title is required" }, { status: 400 });
@@ -54,8 +37,8 @@ export async function POST(request) {
 
   try {
     const { data, error } = await supabase
-      .from("secnotes")
-      .insert([{ title, content, user_id: user.id }])
+      .from("tasks")
+      .insert([{ title, description, status, user_id: user.id }])
       .select()
       .single();
 
@@ -63,6 +46,6 @@ export async function POST(request) {
     return NextResponse.json(data, { status: 201 });
   } catch (err) {
     console.error(err);
-    return NextResponse.json({ error: "Failed to add note" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to add task" }, { status: 500 });
   }
 }

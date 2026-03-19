@@ -7,6 +7,17 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // ========== REGISTRATION ROUTE ==========
 // POST /register - Create a new user account
 // Expected request body: { email: string, password: string }
+/**
+ * Register a new user account.
+ *
+ * - Rejects if email/password missing or user already exists
+ * - Hashes password with bcrypt before inserting
+ * - Returns the created user (without password)
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.register =  async (req, res) => {
   console.log("REGISTER ROUTE HIT");
   console.log("Request Body:", req.body);
@@ -59,6 +70,17 @@ exports.register =  async (req, res) => {
 // POST /login - Authenticate user and return JWT token
 // Expected request body: { email: string, password: string }
 // Returns: { message: string, token: string }
+/**
+ * Authenticate a user and return a signed JWT.
+ *
+ * - Rejects if email/password missing or user not found
+ * - Validates password via bcrypt compare
+ * - Signs a JWT with a 1-hour expiry
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   

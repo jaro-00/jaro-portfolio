@@ -3,6 +3,13 @@ const supabase = require("../db/db");
 // POST /notes - Create a new note for the authenticated user
 // Requires: authenticateToken middleware (user must be logged in)
 // Expected request body: { title: string, content: string }
+/**
+ * Create a new note belonging to the authenticated user.
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.createNote = async (req, res) => {
   const { title, content } = req.body;
   const user_id = req.user?.id;
@@ -27,6 +34,13 @@ exports.createNote = async (req, res) => {
 
 // GET /notes - Fetch all notes for the authenticated user
 // Requires: authenticateToken middleware (user must be logged in)
+/**
+ * Return all notes for the authenticated user.
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.notes = async (req, res) => {
   const user_id = req.user?.id;
   if (!user_id) return res.status(401).json({ error: "Unauthorized" });
@@ -48,6 +62,15 @@ exports.notes = async (req, res) => {
 
 // PUT /notes/:id - Update a note (only if user owns it)
 // Requires: authenticateToken middleware (user must be logged in)
+/**
+ * Update a note by id (only if owned by the authenticated user).
+ *
+ * Accepts partial updates; omitted fields are not modified.
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.updateNote = async (req, res) => {
   const { id } = req.params;
   const { title, content } = req.body;
@@ -90,6 +113,13 @@ exports.updateNote = async (req, res) => {
 
 // DELETE /notes/:id - Delete a note (only if user owns it)
 // Requires: authenticateToken middleware (user must be logged in)
+/**
+ * Delete a note by id (only if owned by the authenticated user).
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @returns {Promise<void>}
+ */
 exports.deleteNote = async (req, res) => {
   const { id } = req.params;
   const user_id = req.user?.id;

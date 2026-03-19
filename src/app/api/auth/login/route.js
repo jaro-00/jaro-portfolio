@@ -5,6 +5,14 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
+/**
+ * Authenticate a user and return a JWT + sanitized user object.
+ *
+ * Expects JSON body: `{ email: string, password: string }`.
+ *
+ * @param {Request} request
+ * @returns {Promise<import('next/server').NextResponse>}
+ */
 export async function POST(request) {
   try {
     const body = await request.json();

@@ -23,6 +23,9 @@ export default function Home() {
     setIsDarkMode(document.documentElement.classList.contains("dark"));
   }, []);
 
+  /**
+   * Broadcast a dark-mode preference change and persist it in localStorage.
+   */
   const handleDarkModeToggle = () => {
     const isDark = !isDarkMode;
     localStorage.setItem("darkMode", String(isDark));
@@ -30,6 +33,11 @@ export default function Home() {
     setIsDarkMode(isDark);
   };
 
+  /**
+   * Smooth-scroll to a section by id and close the mobile menu.
+   *
+   * @param {string} id
+   */
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (!section) return;
@@ -51,6 +59,9 @@ export default function Home() {
     setIsMobileMenuOpen(false);
   };
 
+  /**
+   * Toggle the mobile navigation drawer.
+   */
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -260,22 +271,26 @@ export default function Home() {
                 <div className="text-6xl"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">Full-Stack Notes Application</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                A complete notes management system with user authentication, built using Next.js for the frontend and Node.js/Express for the backend, featuring secure API endpoints and database integration.
-                </p>
-                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
-                  <li>JWT-based authentication for secure user sessions</li>
-                  <li>RESTful API with CRUD operations for notes</li>
-                  <li>Protected routes and middleware for authorization</li>
-                  <li>Supabase database integration for data persistence</li>
-                  <li>Responsive design with modern UI components</li>
-                </ul>
+               <h3 className="text-2xl font-bold mb-2 dark:text-white">
+                Full-Stack Productivity Application (Notes & Tasks)
+              </h3>
+
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+              A full-stack productivity system combining note-taking and task management features, built with Next.js for the frontend and Node.js/Express for the backend. The application includes secure authentication, protected API routes, and real-time data handling.
+              </p>
+
+              <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4">
+                <li>JWT-based authentication for secure user sessions</li>
+                <li>CRUD operations for both notes and task management</li>
+                <li>Status tracking system for tasks (Pending, In Progress, Completed)</li>
+                <li>Protected routes and middleware for authorization</li>
+                <li>Supabase integration for database and user data persistence</li>
+                <li>Responsive UI built with modern design principles</li>
+              </ul>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Next.js</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Node.js</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Express</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JWT</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Supabase</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>

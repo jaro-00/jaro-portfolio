@@ -10,6 +10,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/**
+ * Mount API routers.
+ *
+ * - `/api/auth`: registration + login
+ * - `/api/notes`: CRUD notes (requires auth)
+ */
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', notesRoutes);
 

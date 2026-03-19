@@ -18,6 +18,11 @@ export default function LoginPage() {
     
     
 
+    /**
+     * Submit credentials to the login API, store JWT token, then redirect.
+     *
+     * @param {React.FormEvent<HTMLFormElement>} e
+     */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
        const res = await fetch(`/api/auth/login`,{
@@ -31,7 +36,7 @@ export default function LoginPage() {
 
         if (res.ok) {
             localStorage.setItem("token", data.token);
-            router.push("/notes");
+            router.push("/dashboard");
         }else {
             const error = data.error || "Login failed";
             alert(error);
@@ -74,7 +79,7 @@ export default function LoginPage() {
                         />
                     </div>
                     <button
-                        type="submit"
+                        type="submit"  
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-200"
                     >
                         Login

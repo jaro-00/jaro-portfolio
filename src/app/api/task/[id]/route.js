@@ -22,14 +22,15 @@ export async function PUT(request, { params }) {
   const id = Number(rawId);
 
   if (!Number.isFinite(id)) {
-    return NextResponse.json({ error: 'Invalid note id' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid task id' }, { status: 400 });
   }
 
-  const { title, content } = await request.json();
+  const { title, description, status } = await request.json();
 
   const updateData = { updated_at: new Date().toISOString() };
   if (title !== undefined) updateData.title = title;
-  if (content !== undefined) updateData.content = content;
+  if (description !== undefined) updateData.description = description;
+  if (status !== undefined) updateData.status = status;
 
   if (Object.keys(updateData).length === 1) {
     return NextResponse.json(
@@ -40,7 +41,7 @@ export async function PUT(request, { params }) {
 
   try {
     const { data, error } = await supabase
-      .from('secnotes')
+      .from('tasks')
       .update(updateData)
       .eq('id', id)
       .eq('user_id', user.id)
@@ -63,7 +64,7 @@ export async function PUT(request, { params }) {
 }
 
 /**
- * Delete a note by id (only if owned by the authenticated user).
+ * Delete a task by id (only if owned by the authenticated user).
  *
  * Auth: `Authorization: Bearer <jwt>`.
  *
@@ -81,12 +82,12 @@ export async function DELETE(request, { params }) {
   const id = Number(rawId);
 
   if (!Number.isFinite(id)) {
-    return NextResponse.json({ error: 'Invalid note id' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid task id' }, { status: 400 });
   }
 
   try {
     const { data, error } = await supabase
-      .from('secnotes')
+      .from('tasks')
       .delete()
       .eq('id', id)
       .eq('user_id', user.id)
@@ -95,14 +96,14 @@ export async function DELETE(request, { params }) {
 
     if (error) throw error;
     if (!data) {
-      return NextResponse.json({ error: 'Note not found' }, { status: 404 });
+      return NextResponse.json({ error: 'Task not found' }, { status: 404 });
     }
 
     return NextResponse.json(data);
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { error: 'Failed to delete note' },
+      { error: 'Failed to delete Task' },
       { status: 500 },
     );
   }
