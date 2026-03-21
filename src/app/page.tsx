@@ -211,11 +211,13 @@ export default function Home() {
         <img src="/jade.jpg" alt="Profile" className="w-48 h-48 rounded-full p-5 shadow-2xl mb-6 object-cover border-4 border-sky-300 dark:border-blue-600" />
         <h1 className="text-5xl md:text-6xl font-bold mb-4 text-center dark:text-white">Jade Anthony Ortega</h1>
         <h2 className="text-2xl md:text-3xl px-6 py-3 bg-gradient-to-br from-sky-300 to-blue-500 dark:from-blue-700 dark:to-blue-600 shadow-md rounded-full dark:text-white mb-6 text-center">
-          Web Developer & Creative Problem Solver
+          Web Developer & Problem Solver
         </h2>
+        {/* 
         <p className="max-w-2xl text-lg text-gray-700 dark:text-gray-300 text-center mb-8 leading-relaxed">
           Building beautiful, functional web experiences with modern technologies. Let's transform your ideas into reality.
         </p>
+        */}
         <button className="px-8 py-3 font-bold text-white rounded-full bg-gradient-to-br from-blue-700 to-blue-600 shadow-md transition hover:-translate-y-1 hover:shadow-lg cursor-pointer dark:hover:text-white" onClick={(e) => {e.preventDefault(); scrollToSection("contact")}}>
           Get In Touch
         </button>
@@ -229,11 +231,11 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Skill Card 1 */}
-            <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
+           <div className="p-8 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-50 dark:from-blue-900/30 dark:to-blue-900/30 shadow-md hover:shadow-xl transition transform hover:-translate-y-2">
               <div className="text-4xl mb-4"></div>
-              <h3 className="text-2xl font-bold mb-3 dark:text-white">Frontend Development</h3>
+              <h3 className="text-2xl font-bold mb-3 dark:text-white">Backend Development</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-               Building responsive user interfaces using React and Next.js, with a focus on component structure, state handling, and clean layouts using Tailwind CSS.
+              Developing server-side logic and APIs using Node.js, focusing on authentication with JWT, database integration with Supabase, and building secure, scalable systems for real-world applications.
               </p>
             </div>
 
@@ -289,11 +291,11 @@ export default function Home() {
               </ul>
                 <div className="flex flex-wrap gap-2">
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Next.js</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">React</span>
+                 
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Node.js</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">JWT</span>
                   <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Supabase</span>
-                  <span className="px-3 py-1 bg-sky-100 dark:bg-blue-900 text-blue-800 dark:text-sky-200 rounded-full text-sm font-semibold">Tailwind CSS</span>
+                  
                 </div>
                 <div className="flex justify-center mt-5">
                  <Link href="/login" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
@@ -549,7 +551,7 @@ export default function Home() {
                 </a>
                 
                 <a 
-                  href="https://github.com/jaro-00" 
+                  href="https://github.com/jaro-00/jaro-portfolio" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 rounded-xl hover:scale-105 transition transform shadow-md text-gray-800 dark:text-white font-semibold"
